@@ -1,0 +1,1 @@
+console.log('Small library app')
