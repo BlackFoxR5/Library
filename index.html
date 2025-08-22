@@ -7,6 +7,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script src="func.js" defer></script>
     <h1>Library</h1>
+    <h2>Books</h2>
+    <div class="container"></div>
+
+    <div class="center">
+        <button class="newBook">New Book</button>
+    </div>
+
+    <dialog class="askUser">
+        <form id="bookForm">
+            <label for="title">Title:</label>
+            <input type="text" id="titleInput" name="title" required>
+            <br><br>
+
+            <!-- Author -->
+            <label for="author">Author:</label>
+            <input type="text" id="authorInput" name="author" required>
+            <br><br>
+
+            <!-- Published Year -->
+            <label for="published">Published Year:</label>
+            <input type="number" id="publishedInput" name="published" min="0" required>
+            <br><br>
+
+            <!-- Have you read it? -->
+            <label for="readOrNot">Have you read it?</label>
+            <select id="readInput">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+            <br><br>
+
+            <!-- Submit -->
+            <button class="confirmBtn" type="submit">Add Book</button>
+            <!-- Cancel -->
+            <button class="cancelBtn" value="cancel" formmethod="dialog">Cancel</button>
+        </form>
+    </dialog>
 </body>
 </html>
