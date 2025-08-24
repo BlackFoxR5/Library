@@ -5,19 +5,35 @@
 @font-face {
     font-family: balto;
     src: url(Balto-Light.woff2);
+    font-family: akkurat;
+    src: url(Akkurat.woff2);
+    font-family: tiempos;
+    src: url(TestTiemposFine-Semibold-BF66457a50f016a.woff2);
 }
 
 body {
     background-color: #FCF7E6;
 }
 
-h1, h2 {
+h1{
     text-align: center;
-    font-family: balto, sans-serif;
+    font-family: tiempos, sans-serif;
+    margin-bottom: 10px;
 }
 
 h2 {
+    text-align: center;
+    font-family: balto;
     margin-top: 30px;
+}
+
+p {
+    font-family: akkurat;
+}
+
+button {
+    font-family: akkurat;
+    font-size: large;
 }
 
 .container {
@@ -36,6 +52,8 @@ h2 {
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     padding: 25px;
     transition: all 0.3s ease;
+    border-bottom: 15px solid #0a0a09;
+    background-color: #EDE7D2;
 }
 
 .container > div:hover {
@@ -62,4 +80,19 @@ h2 {
     display: flex;
     justify-content: center;
     /* align-items: center; */
+}
+
+.removeBtn {
+    margin-top: 25%;
+    border: 0.5px solid black;
+    transition: all 0.5s ease;
+    background-color: #FCF7E6;
+    border-radius: 30px;
+    padding: 15px;
+}
+
+.removeBtn:hover {
+    color: #FCF7E6;
+    background-color: black;
+    border: none;
 }

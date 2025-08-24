@@ -9,7 +9,7 @@ function Book(title, author, published, hasRead) {
     this.published = published;
     this.hasRead = hasRead;
 
-    this.uniqueId = crypto.randomUUID();
+    this.uniqueId = crypto.randomUUID(); //generates a unique ID for each book
 }
 
 //function to create the book and store it in the empty array
@@ -54,6 +54,11 @@ function sortInPage(array) {
         bookInfo.appendChild(publishedElement);
         bookInfo.appendChild(readElement);
         
+        let removeBtn = document.createElement('button');
+        removeBtn.classList.add('removeBtn');
+        removeBtn.textContent = 'Remove Book';
+        bookInfo.appendChild(removeBtn);
+
         //adds div into the page
         container.appendChild(bookInfo);
     }
@@ -113,6 +118,11 @@ confirmBtn.addEventListener('click', (e) => {
     singleBookInfo.appendChild(authorElement);
     singleBookInfo.appendChild(publishedElement);
     singleBookInfo.appendChild(readElement);
+
+    let removeBtn = document.createElement('button');
+    removeBtn.classList.add('removeBtn');
+    removeBtn.textContent = 'Remove Book';
+    singleBookInfo.appendChild(removeBtn);
 
     //add the div to the body
     container.appendChild(singleBookInfo);
