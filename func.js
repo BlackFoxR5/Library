@@ -30,9 +30,10 @@ let container = document.querySelector('.container');
 function sortInPage(array) {
     for(let i = 0; i < array.length; i++) {
         let book = array[i];
-        console.log(book.title, book.author, book.published, book.hasRead);
+        console.log(book.title, book.author, book.published, book.hasRead, book.uniqueId);
 
         let bookInfo = document.createElement("div"); //the div where the book content will be displayed
+        bookInfo.setAttribute('data-uniqueId', book.uniqueId); //unique id of the book set to the div
 
         let titleElement = document.createElement("h1");
         let titleStrong = document.createElement("strong");
@@ -57,12 +58,31 @@ function sortInPage(array) {
         let removeBtn = document.createElement('button');
         removeBtn.classList.add('removeBtn');
         removeBtn.textContent = 'Remove Book';
-        bookInfo.appendChild(removeBtn);
+        removeBtn.setAttribute('data-uniqueId', book.uniqueId) //unique id of the set to the remove button
+        bookInfo.appendChild(removeBtn); //remove button added to each book card
 
         //adds div into the page
         container.appendChild(bookInfo);
     }
 }
+
+//re-write again
+container.addEventListener('click', (e) => {
+    if(e.target.classList.contains('removeBtn')) {
+        const bookId = e.target.getAttribute('data-uniqueId');
+
+        const index = library.findIndex(book => book.uniqueId === bookId);
+        if(index !== -1) {
+            library.splice(index, 1);
+        }
+
+        const bookCard = container.querySelector(`[data-uniqueId='${bookId}']`);
+        if(bookCard) {
+            bookCard.remove();
+        }
+    }
+});
+//re-write again
 
 sortInPage(library); //this places the books in the page and display them in the console
 
@@ -122,12 +142,21 @@ confirmBtn.addEventListener('click', (e) => {
     let removeBtn = document.createElement('button');
     removeBtn.classList.add('removeBtn');
     removeBtn.textContent = 'Remove Book';
-    singleBookInfo.appendChild(removeBtn);
+    singleBookInfo.appendChild(removeBtn); //remove button added to the new book card
+
+    removeBtn.addEventListener('click', () => {
+        alert('book removed')
+    });
 
     //add the div to the body
     container.appendChild(singleBookInfo);
+    
+    const singleBookUniqueId = library[library.length - 1].uniqueId; //unique id of the newly added book
+    
+    singleBookInfo.setAttribute('data-uniqueId', singleBookUniqueId); //unique id of the book set to the div
+    removeBtn.setAttribute('data-uniqueId', singleBookUniqueId); //unique id of the set to the remove button
 
-    console.log(title, author, published, hasRead);
+    console.log(title, author, published, hasRead, singleBookUniqueId);
 
     //resets the form of previous inputs
     document.getElementById("bookForm").reset();
