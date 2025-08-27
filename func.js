@@ -12,6 +12,15 @@ function Book(title, author, published, hasRead) {
     this.uniqueId = crypto.randomUUID(); //generates a unique ID for each book
 }
 
+//prototype added to the book constructor
+Book.prototype.toggleRead = function() {
+    if(this.hasRead === 'Yes') {
+        this.hasRead = 'No';
+    } else if(this.hasRead === 'No') {
+        this.hasRead = 'Yes';
+    }
+}
+
 //function to create the book and store it in the empty array
 function booksToLibrary(title, author, published, hasRead) {
     let newBook = new Book(title, author, published, hasRead); //calling the book constructor and saving the object in the declared variable
