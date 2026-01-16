@@ -12,14 +12,14 @@ function Book(title, author, published, hasRead) {
     this.uniqueId = crypto.randomUUID(); //generates a unique ID for each book
 }
 
-//prototype added to the book constructor
-Book.prototype.toggleRead = function() {
-    if(this.hasRead === 'Yes') {
-        this.hasRead = 'No';
-    } else if(this.hasRead === 'No') {
-        this.hasRead = 'Yes';
-    }
-}
+//method added to the book constructor to switch read status
+// Book.prototype.toggleRead = function() {
+//     if(this.hasRead === 'Yes') {
+//         this.hasRead = 'No';
+//     } else if(this.hasRead === 'No') {
+//         this.hasRead = 'Yes';
+//     }
+// }
 
 //function to create the book and store it in the empty array
 function booksToLibrary(title, author, published, hasRead) {
@@ -54,7 +54,7 @@ function sortInPage(array) {
         
         let publishedElement = document.createElement("p");
         publishedElement.textContent = `Published: ${book.published}`; //p for year published
-        
+    
         let readElement = document.createElement("p");
         readElement.textContent = `Read: ${book.hasRead}`; //p for read status
         
@@ -88,6 +88,7 @@ container.addEventListener('click', (e) => {
         const bookCard = container.querySelector(`[data-uniqueId='${bookId}']`);
         if(bookCard) {
             bookCard.remove();
+            alert('book removed');
         }
     }
 });
@@ -152,10 +153,6 @@ confirmBtn.addEventListener('click', (e) => {
     removeBtn.classList.add('removeBtn');
     removeBtn.textContent = 'Remove Book';
     singleBookInfo.appendChild(removeBtn); //remove button added to the new book card
-
-    removeBtn.addEventListener('click', () => {
-        alert('book removed')
-    });
 
     //add the div to the body
     container.appendChild(singleBookInfo);
