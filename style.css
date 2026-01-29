@@ -100,6 +100,7 @@ button {
     padding: 10px;
     width: 50%;
     align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .removeBtn:hover {
@@ -118,6 +119,7 @@ button {
     padding: 10px;
     width: 50%;
     align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .toggleBtn:hover {
@@ -127,3 +129,50 @@ button {
 }
 
 /* style new book form */
+.askUser {
+    margin: auto; /* opens the form in the center */
+    border: 1px solid #D6D9DC;
+    border-radius: 5px;
+}
+
+form {
+    background-color: #F6F7F8;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    padding: 15px 40px 15px 15px;
+    margin: 0 0 40px 0;
+}
+
+form > h2 {
+    margin: auto auto 30px auto;
+}
+
+form > label {
+    font-family: balto;
+    font-weight: 1000;
+}
+
+form > input {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+}
+
+form > select {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    /* width: 100%; */
+    padding: 7px;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+form > button {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    padding: 10px;
+}
